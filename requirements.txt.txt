@@ -1,3 +1,0 @@
-streamlit
-git+https://github.com/nilp0inter/experta.git
-frozendict==2.3.4
