@@ -1,4 +1,7 @@
 import streamlit as st
+import collections
+import collections.abc
+collections.Mapping = collections.abc.Mapping
 from hechos import Bienestar
 from motor import AsistenteBienestar
 from utils import calcular_imc
@@ -51,4 +54,5 @@ if enviar:
         st.success("¡Tu nivel de bienestar es alto, mantené tus hábitos!")
     else:
         st.info("→ Consejo general: hacé pequeñas mejoras en tu rutina y revisá cómo te sentís en una semana.")
+
 
