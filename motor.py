@@ -1,7 +1,3 @@
-import collections
-import collections.abc
-collections.Mapping = collections.abc.Mapping
-
 from experta import KnowledgeEngine, Rule, AND, MATCH, TEST, P
 from hechos import Bienestar
 
@@ -41,4 +37,5 @@ class AsistenteBienestar(KnowledgeEngine):
     @Rule(AND(Bienestar(ejercicio_frecuencia="ninguno"), Bienestar(comidas_sanas="nunca")))
     def malos_habitos(self):
         self.recomendaciones.append("💡 Tus hábitos pueden afectar tu salud. Comenzá con pequeños cambios.")
+
 
