@@ -52,8 +52,9 @@ if enviar:
     else:
         st.success("¡Tu nivel de bienestar es alto, mantené tus hábitos!")
 
-    imc, mensaje_imc = calcular_imc(peso, altura)
+    imc, mensaje_imc = calcular_imc(peso, altura, sexo)
     if imc:
         st.info(mensaje_imc)
     else:
         st.warning(mensaje_imc)
+
