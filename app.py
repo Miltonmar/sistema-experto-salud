@@ -29,4 +29,31 @@ if enviar:
         edad=edad,
         sexo=sexo,
         horas_sueño=horas_sueño,
-        ejercicio_frecuencia=ejercicio_frecuencia
+        ejercicio_frecuencia=ejercicio_frecuencia,
+        comidas_sanas=comidas_sanas,
+        vasos_agua=vasos_agua,
+        nivel_estrés=nivel_estrés,
+        estado_animo=estado_animo,
+        horas_trabajo=horas_trabajo,
+        peso=peso,
+        altura=altura
+    ))
+    engine.run()
+    engine.calcular_estado_final()
+
+    st.subheader("🌈 Estado general:")
+    st.markdown(f"**{engine.estado_final}**")
+
+    if engine.recomendaciones:
+        st.subheader("📌 Recomendaciones personalizadas:")
+        for r in engine.recomendaciones:
+            st.write("- " + r)
+        st.info("→ Consejo general: hacé pequeñas mejoras en tu rutina y revisá cómo te sentís en una semana.")
+    else:
+        st.success("¡Tu nivel de bienestar es alto, mantené tus hábitos!")
+
+    imc, mensaje_imc = calcular_imc(peso, altura)
+    if imc:
+        st.info(mensaje_imc)
+    else:
+        st.warning(mensaje_imc)
