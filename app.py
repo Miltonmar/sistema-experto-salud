@@ -39,10 +39,14 @@ if enviar:
         altura=altura
     ))
     engine.run()
-    engine.calcular_estado_final()
 
-    st.subheader("🌈 Estado general:")
-    st.markdown(f"**{engine.estado_final}**")
+    # Verificamos que el motor haya generado puntajes antes de calcular el estado
+    if hasattr(engine, "calcular_estado_final"):
+        engine.calcular_estado_final()
+        st.subheader("🌈 Estado general:")
+        st.markdown(f"**{engine.estado_final}**")
+    else:
+        st.warning("No se pudo calcular el estado general. Verificá el motor.")
 
     if engine.recomendaciones:
         st.subheader("📌 Recomendaciones personalizadas:")
@@ -57,4 +61,3 @@ if enviar:
         st.info(mensaje_imc)
     else:
         st.warning(mensaje_imc)
-
