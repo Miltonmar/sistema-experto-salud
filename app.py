@@ -29,30 +29,4 @@ if enviar:
         edad=edad,
         sexo=sexo,
         horas_sueño=horas_sueño,
-        ejercicio_frecuencia=ejercicio_frecuencia,
-        comidas_sanas=comidas_sanas,
-        vasos_agua=vasos_agua,
-        nivel_estrés=nivel_estrés,
-        estado_animo=estado_animo,
-        horas_trabajo=horas_trabajo,
-        peso=peso,
-        altura=altura
-    ))
-    engine.run()
-
-    st.subheader("🌈 Resumen de bienestar:")
-    for r in engine.recomendaciones:
-        st.write("- " + r)
-
-    imc, clasificacion = calcular_imc(peso, altura)
-    if imc:
-        st.info(f"📏 Tu IMC es {imc:.1f} → {clasificacion}")
-    else:
-        st.warning("No se pudo calcular el IMC por falta de datos.")
-
-    if not engine.recomendaciones:
-        st.success("¡Tu nivel de bienestar es alto, mantené tus hábitos!")
-    else:
-        st.info("→ Consejo general: hacé pequeñas mejoras en tu rutina y revisá cómo te sentís en una semana.")
-
-
+        ejercicio_frecuencia=ejercicio_frecuencia
