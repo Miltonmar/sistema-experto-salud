@@ -5,7 +5,7 @@ def validar_datos_antropometricos(peso, altura):
         return False, "⚠️ Los valores ingresados parecen fuera de rango. Revisalos."
     return True, "✅ Datos válidos para calcular IMC."
 
-def calcular_imc(peso, altura):
+def calcular_imc(peso, altura, sexo):
     valido, mensaje = validar_datos_antropometricos(peso, altura)
     if not valido:
         return None, mensaje
@@ -19,4 +19,11 @@ def calcular_imc(peso, altura):
         clasificacion = "Sobrepeso"
     else:
         clasificacion = "Obesidad"
-    return imc, f"📏 Tu IMC es {imc:.1f} → {clasificacion}"
+
+    observacion = ""
+    if sexo == "F" and imc >= 25:
+        observacion = " (en mujeres, el IMC elevado puede tener más impacto metabólico)"
+    elif sexo == "M" and imc < 18.5:
+        observacion = " (en varones, el bajo peso puede afectar la masa muscular)"
+
+    return imc, f"📏 Tu IMC es {imc:.1f} → {clasificacion}{observacion}"
