@@ -10,7 +10,7 @@ st.title("🧠 Asistente de Bienestar Personal")
 
 with st.form("formulario_bienestar"):
     edad = st.number_input("Edad", min_value=0, max_value=120)
-    sexo = st.selectbox("Sexo", ["M", "F", "Otro"])
+    sexo = st.selectbox("Sexo", ["M", "F"])
     horas_sueño = st.slider("Horas de sueño por noche", 0, 12, 7)
     ejercicio_frecuencia = st.selectbox("Frecuencia de ejercicio", ["ninguno", "poco", "regular", "diario"])
     comidas_sanas = st.selectbox("¿Comés sano?", ["nunca", "a veces", "siempre"])
@@ -61,3 +61,4 @@ if enviar:
         st.info(mensaje_imc)
     else:
         st.warning(mensaje_imc)
+
